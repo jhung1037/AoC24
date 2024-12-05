@@ -11,7 +11,6 @@ def solution(file):
     enabled = True
     for line in lines:
         matches = re.findall("mul\(\d+,\d+\)|do\(\)|don't\(\)", line)
-        # print(matches)
         for match in matches:
             if match == "do()":
                 enabled = True
