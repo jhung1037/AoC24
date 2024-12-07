@@ -5,12 +5,12 @@ def solution(file):
         rules, updates = f.read().split("\n\n")
     
     front_of = defaultdict(set)
-    for rule in rules.split("\n"):
+    for rule in rules.splitlines():
         a, b = rule.split("|")
         front_of[b].add(a)
     
     res = 0
-    for pages in updates.split("\n"):
+    for pages in updates.splitlines():
         page = pages.split(",")
         valid = True
         for i in range(len(page)):

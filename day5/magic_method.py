@@ -16,12 +16,12 @@ def solution(file):
         rules, updates = f.read().split("\n\n")
     
     front_of = defaultdict(set)
-    for rule in rules.split("\n"):
+    for rule in rules.splitlines():
         a, b = rule.split("|")
         front_of[b].add(a)
     
     res = 0
-    for update in updates.split("\n"):
+    for update in updates.splitlines():
         pages = update.split(",")
         lis = [Key(page, front_of) for page in pages]
         sorted_lis = sorted(lis)
