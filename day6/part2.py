@@ -1,4 +1,3 @@
-'''
 def foward(r, c, dr, dc, lab):
     if not (0 <= r+dr < len(lab) and 0 <= c+dc < len(lab[0])):
         return (-1, -1, 0, 0)
@@ -57,5 +56,3 @@ def solution(file):
 if __name__ == "__main__":
     assert solution("day6/test.txt") == 6
     print( solution("day6/data.txt") )
-'''
-
