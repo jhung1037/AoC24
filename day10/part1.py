@@ -2,15 +2,13 @@ NUM = tuple(str(i) for i in range(10))
 DIRECTIONS = ((-1, 0), (0, -1), (0, 1), (1, 0))
 
 def dfs(r, c, grid, i, visited):
-    if not(0 <= r < len(grid) and 0 <= c < len(grid[0])) or grid[r][c] != NUM[i]:
+    if (not(0 <= r < len(grid) and 0 <= c < len(grid[0])) or 
+        (r, c) in visited or grid[r][c] != NUM[i]):
         return 0
-
+    
+    visited.add((r, c))
     if i == 9 and grid[r][c] == "9":
-        if (r, c) in visited:
-            return 0
-        else:
-            visited.add((r, c))
-            return 1
+        return 1
 
     return sum(dfs(r+dr, c+dc, grid, i+1, visited) for dr, dc in DIRECTIONS)
 
